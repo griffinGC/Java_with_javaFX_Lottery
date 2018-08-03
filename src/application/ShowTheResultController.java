@@ -54,6 +54,9 @@ public class ShowTheResultController implements Initializable {
 				if (MainFirstController.autoTotalNums.get(i).equals(winning2)) {
 					vboxAuto.getChildren()
 							.addAll(new Label(MainFirstController.autoTotalNums.get(i).toString() + "\t" + "당첨!"));
+				} else if(secondWinner(winning, MainFirstController.autoTotalNums.get(i), bonus)) {
+					vboxAuto.getChildren()
+					.addAll(new Label(MainFirstController.autoTotalNums.get(i).toString() + "\t" + "2등 당첨!"));
 				} else {
 					vboxAuto.getChildren()
 							.addAll(new Label(MainFirstController.autoTotalNums.get(i).toString() + "\t" + "꽝!"));
@@ -92,15 +95,15 @@ public class ShowTheResultController implements Initializable {
 		boolean bonusCheck = false;
 		for(int i = 0; i< 6; i++)
 		{
-			if(winner.get(i)==bonus) {
+			if(temp.get(i)==bonus) {
 				bonusCheck=true;
 				break;
 			}
 		}
 		for(int i = 0; i<6; i++) 
 		{
-			for(int j = 0; j<i; j++) {
-				if(winner.get(i) == temp.get(i)) 
+			for(int j = 0; j<=i; j++) {
+				if(winner.get(i) == temp.get(j)) 
 				{
 					same --;
 				}					
