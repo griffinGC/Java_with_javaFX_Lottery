@@ -59,8 +59,8 @@
          <children>
          	<HBox alignment="CENTER" spacing="20.0" GridPane.columnIndex="0" GridPane.columnSpan="9" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0">
                <children>
-                <!-- <fx:define>
-               	<ToggleGroup fx:id="groupName"/></fx:define> --> 
+                <fx:define>
+               	<ToggleGroup fx:id="groupName"/></fx:define>  
                   <RadioButton fx:id="auto" mnemonicParsing="false" onAction="#AutoSelected" text="자동" toggleGroup="$groupName" />
                   <RadioButton fx:id="manual" mnemonicParsing="false" onAction="#ManualSelected" text="수동" toggleGroup="$groupName" />
                    

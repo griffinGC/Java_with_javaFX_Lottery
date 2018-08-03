@@ -1,6 +1,7 @@
 package application;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Vector;
 
@@ -39,7 +40,8 @@ public class MyNumController implements Initializable{
 	@FXML private VBox autoChoice;
 	@FXML private VBox manualChoice;
 	@FXML private Button checkWinning;
-	public Vector<Integer> winning = new Vector<Integer>();
+	static public Vector<Integer> temp = new Vector<Integer>();
+
 	
 	//자동으로 선택된 목록 
 	public void viewAuto() {
@@ -67,12 +69,18 @@ public class MyNumController implements Initializable{
 	}
 	
 	public void makeWinningNumber() throws Exception {
-		for(int i = 0; i< 6; i++)
-		{
-			winning.add((int)(Math.random()*45) +1);
-		}
-		
-		System.out.println(winning);
+//		for(int i = 0; i< 7; i++)
+//		{
+//			temp.add((int)(Math.random()*45) +1);
+//		}
+		temp.add(1);
+		temp.add(2);
+		temp.add(3);
+		temp.add(4);
+		temp.add(5);
+		temp.add(6);
+		temp.add(7);
+
 		FXMLLoader result = new FXMLLoader(getClass().getResource("ShowTheResult.fxml"));
 		Parent forResult = result.load();
 		ShowTheResultController rcontroller = result.getController();
@@ -80,11 +88,6 @@ public class MyNumController implements Initializable{
 		Scene last = new Scene(forResult);
 		primaryStage.setTitle("최종결과");
 		primaryStage.setScene(last);
-
-		
-		
-		
-		
 		
 	}
 }

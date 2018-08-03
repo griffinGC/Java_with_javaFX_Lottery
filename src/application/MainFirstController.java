@@ -271,14 +271,7 @@ public class MainFirstController implements Initializable {
 //			System.out.println("뺄 번호 : " + realNum);
 		}
 		System.out.println(selectedNums);
-//		TreeSet<Integer> temp = new TreeSet<Integer>();
-//
-//		while(!selectedNums.isEmpty()) {
-//			temp.add(selectedNums.pollFirst());			
-//		}
-//
-//		manualTotalNums.add(temp);
-//		selectedNums.clear();
+
 
 
 
