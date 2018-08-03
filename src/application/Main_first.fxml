@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainFirstController">
+	<padding>
+	<Insets topRightBottomLeft="10.0" />
+	</padding>
+   <children>
+      <Label alignment="CENTER" ellipsisString="&lt;&lt;Rule&gt;&gt;&#10;&#10;입력하신 횟수만큼 자동/수동 중 선택하여 로또 게임에 참여할 수 있습니다.&#10;(자동)자동버튼을 선택한 후 등록버튼을 눌러주세요. &#10;(수동) 숫자를 6개 모두 선택하신 후 등록버튼을 눌러주세요. &#10;횟수를 모두 소진하였으면 결과보기를 통해 당첨확인을 할 수 있습니다." prefHeight="152.0" prefWidth="406.0" text="gggggggggggggggggggggggggggggggggggggggggggggggggggggggg" textAlignment="CENTER" />
+      <HBox alignment="CENTER" prefHeight="40.0" prefWidth="430.0" spacing="20.0">
+         <children>
+            <Label text="게임횟수를 입력하세요">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="number" prefWidth="70.0" />
+            <Button fx:id="inputBtn" mnemonicParsing="false" onAction="#handleInputButton" text="입력" />
+            <!-- 버튼을 restNumber와 바인딩 한다. -->
+         </children>
+      </HBox>
+      <Label text="게임을 시작합니다!">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="39.0" prefWidth="430.0" spacing="20.0">
+         <children>
+            <Label text="남은 횟수 : " />
+            <Label fx:id="restNumber" text="N" />
+         </children>
+      </HBox>
+      <GridPane alignment="CENTER" prefHeight="253.0" prefWidth="429.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+         	<HBox alignment="CENTER" spacing="20.0" GridPane.columnIndex="0" GridPane.columnSpan="9" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0">
+               <children>
+                <!-- <fx:define>
+               	<ToggleGroup fx:id="groupName"/></fx:define> --> 
+                  <RadioButton fx:id="auto" mnemonicParsing="false" onAction="#AutoSelected" text="자동" toggleGroup="$groupName" />
+                  <RadioButton fx:id="manual" mnemonicParsing="false" onAction="#ManualSelected" text="수동" toggleGroup="$groupName" />
+                   
+               </children></HBox>
+
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="1" GridPane.rowIndex="1" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="3" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="4" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="5" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="6" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="7" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="8" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="9" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="10" GridPane.rowIndex="2" />            
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="11" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="12" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="13" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="14" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="15" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="16" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="17" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="18" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="19" GridPane.rowIndex="3" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="20" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="21" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="22" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="23" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="24" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="25" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="26" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="27" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="28" GridPane.rowIndex="4" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="29" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="30" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="31" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="32" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="33" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="34" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="35" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="37" GridPane.rowIndex="5" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="36" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="38" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="39" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="40" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="41" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="42" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="43" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="44" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+            <CheckBox mnemonicParsing="false" onAction="#checkChBox" text="45" GridPane.columnIndex="8" GridPane.rowIndex="5" />
+         </children>
+
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding> 
+      </GridPane>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+         <children>
+            <Button fx:id="reset" mnemonicParsing="false" onAction="#resetChBox"  text="초기화" />
+            <Button fx:id="register" mnemonicParsing="false" onAction="#registerNum" text="등  록" />
+         </children>
+      </HBox>
+   </children>
+
+</VBox>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" spacing="35.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MyNumController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" text="당신이 선택한 번호는..!">
+         <font>
+            <Font name="Apple Chancery" size="19.0" />
+         </font>
+      </Label>
+      <TitledPane animated="false" prefWidth="180.0" text="자동">
+         <content>
+            <VBox fx:id="autoChoice" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" />
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" text="수동">
+         <content>
+            <VBox fx:id="manualChoice" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" />
+         </content>
+      </TitledPane>
+      <Button fx:id="checkWinning" mnemonicParsing="false" onAction="#makeWinningNumber" text="당첨확인" />
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>

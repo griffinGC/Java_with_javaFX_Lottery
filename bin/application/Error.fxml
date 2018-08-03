@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="150.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@dialog-warning.png" />
+         </image>
+      </ImageView>
+      <Button id="btnOk" layoutX="300.0" layoutY="100.0" mnemonicParsing="false" text="확인" />
+      <Label layoutX="101.0" layoutY="24.0" prefHeight="33.0" prefWidth="198.0" text="문자열은 입력이 불가능 합니다!" />
+   </children>
+</AnchorPane>

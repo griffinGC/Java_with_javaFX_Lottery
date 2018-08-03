@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="150.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@dialog-info.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="131.0" layoutY="32.0" text="수동을 선택하셨습니다!" />
+      <Button id="btnOk" layoutX="300.0" layoutY="100.0" mnemonicParsing="false" text="확인" />
+      <Label layoutX="123.0" layoutY="57.0" text="숫자 6개를 선택해 주세요." />
+   </children>
+</AnchorPane>
