@@ -69,21 +69,25 @@ public class MyNumController implements Initializable{
 	}
 	
 	public void makeWinningNumber() throws Exception {
-//		for(int i = 0; i< 7; i++)
-//		{
-//			temp.add((int)(Math.random()*45) +1);
-//		}
-		temp.add(1);
-		temp.add(2);
-		temp.add(3);
-		temp.add(4);
-		temp.add(5);
-		temp.add(6);
-		temp.add(7);
+		for(int i = 0; i< 7; i++)
+		{
+			temp.add((int)(Math.random()*45) +1);
+		}
+		
+		//임시값 삽입 
+//		temp.add(1);
+//		temp.add(2);
+//		temp.add(3);
+//		temp.add(4);
+//		temp.add(5);
+//		temp.add(6);
+//		temp.add(7);
 
 		FXMLLoader result = new FXMLLoader(getClass().getResource("ShowTheResult.fxml"));
 		Parent forResult = result.load();
 		ShowTheResultController rcontroller = result.getController();
+		
+		rcontroller.setPrimaryStage(primaryStage);
 		
 		Scene last = new Scene(forResult);
 		primaryStage.setTitle("최종결과");

@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.Iterator;
 import java.util.NavigableSet;
 import java.util.ResourceBundle;
-import java.util.Set;
 import java.util.TreeSet;
 import java.util.Vector;
 
@@ -12,6 +11,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -19,11 +20,13 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class MainFirstController implements Initializable {
+
 
 	@FXML
 	private TextField number; // 게임 횟수
@@ -38,17 +41,20 @@ public class MainFirstController implements Initializable {
 	@FXML
 	private RadioButton manual;// 수동을 선택한 라디오 버튼
 	@FXML
+	private GridPane gridPane;
+	@FXML
 	private Button reset; // 초기화 버튼
+	@FXML
+	private Group groupCheckbox; //체크박스 그룹화!
 	@FXML
 	private Button register; // 6개 뽑은 수를 등록하는 버튼
 	public String possible; // Text에 들어갈 남은 횟수
 	public int possibleNumber = 0; // 가능한 횟수를 숫자로 변경한 것
 	public int limitCheck = 6; // 6개 선택하기 위해서 설정
 
-	// checkbox에 체크된 소스 얻기
-//	TreeSet<Object> checkSource = new TreeSet<Object>();
-//	TreeSet<CheckBox> checkSource = new TreeSet<CheckBox>();
-
+//	public int realNum;
+	TreeSet<Integer> allRealnum = new TreeSet<Integer>();
+	
 	// 6개 선택하였을 경우 값 저장
 	TreeSet<Integer> selectedNums = new TreeSet<Integer>();
 
@@ -116,6 +122,7 @@ public class MainFirstController implements Initializable {
 		dialog.setScene(scene);
 		dialog.setResizable(false);
 		dialog.show();
+		gridPane.setDisable(true);
 
 	}
 
@@ -132,17 +139,25 @@ public class MainFirstController implements Initializable {
 		dialog.setScene(scene);
 		dialog.setResizable(false);
 		dialog.show();
-
+		gridPane.setDisable(false);
 	}
 
 	// 초기화 버튼 => 체크박스 모두 다 false로 만듬
 	public void resetChBox(ActionEvent e) throws Exception {
-		// 나중에 처리
-//		
-//		while(!checkSource.isEmpty()) {
-//			CheckBox haveChecked = (CheckBox) checkSource.pollFirst();
-//			haveChecked.setSelected(false);
-//		}
+		//그룹화 대신에 모든 childnode를 가져옴 어차피 체크박스 밖에 없어서 형변환 시킴 
+		Iterator<Node> all = gridPane.getChildren().iterator();
+		while(all.hasNext()) {
+			//체크박스들 초기화 시킴 
+			Node element = all.next();
+			((CheckBox) element).setSelected(false);
+		}
+		
+		//들어갔던 값들 다시 빼기 위해서 만듬 
+		Iterator<Integer> useReset = allRealnum.iterator();
+		while(useReset.hasNext()) {
+			selectedNums.remove(useReset.next());
+			limitCheck++;
+		}
 	}
 
 	// 등록 버튼
@@ -210,16 +225,18 @@ public class MainFirstController implements Initializable {
 
 	// 자동 선택 숫자 6개 뽑기!
 	public void automaticalChoice() {
-//		for (int i = 0; i < 6; i++) {
-//			selectedNums.add((int) (Math.random() * 45) + 1);
-//
-//		}
-		selectedNums.add(2);
-		selectedNums.add(1);
-		selectedNums.add(3);
-		selectedNums.add(4);
-		selectedNums.add(5);
-		selectedNums.add(7);
+		for (int i = 0; i < 6; i++) {
+			selectedNums.add((int) (Math.random() * 45) + 1);
+
+		}
+		
+//		//임시값 확인 
+//		selectedNums.add(2);
+//		selectedNums.add(1);
+//		selectedNums.add(3);
+//		selectedNums.add(4);
+//		selectedNums.add(5);
+//		selectedNums.add(7);
 		
 		// 6개 뽑고 정렬함!
 		NavigableSet<Integer> sorted = selectedNums.descendingSet().descendingSet();
@@ -255,7 +272,10 @@ public class MainFirstController implements Initializable {
 		String[] arr = tempText.split("\'");
 		tempText = arr[1];
 		int realNum = Integer.parseInt(tempText);
-
+		
+		//나중에 삭제하기 위해 넣어둠;
+		allRealnum.add(realNum);
+		
 		// 선택된 값이 true일 경우
 		if (chb.isSelected()) {
 			// 남은 횟수를 하나 줄인다.

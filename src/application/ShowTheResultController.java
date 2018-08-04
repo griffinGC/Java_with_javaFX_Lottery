@@ -3,6 +3,7 @@ package application;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.StringTokenizer;
 import java.util.TreeSet;
 import java.util.Vector;
 
@@ -10,27 +11,35 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class ShowTheResultController implements Initializable {
 
 	@FXML
-	private Label winningNumber;
+	private Label winningNumber; //당첨 번호 적는 라벨 
 	@FXML
-	private Label bonusNumber;
+	private Label bonusNumber; // 보너스 번호 적는 라벨 
 	@FXML
-	private VBox vboxAuto;
+	private VBox vboxAuto; //자동 박스 
 	@FXML
-	private VBox vboxManual;
-	static public List<Integer> winning = new Vector<Integer>();
+	private VBox vboxManual; // 수동 박스 
+	
+	static public List<Integer> winning = new Vector<Integer>(); // 당첨번호 뽑기위해서 list로 생성 
 
-	static public TreeSet<Integer> winning2;
-	Integer bonus;
-
+	static public TreeSet<Integer> winning2; //equals를 비교하기 위해 생성 
+	
+	Integer bonus; // 보너스 번호
+	private Stage primaryStage2;
+	public void setPrimaryStage(Stage primaryStage) {
+		this.primaryStage2 = primaryStage;
+	}
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		showWinningBonusNumber();
 		resultAuto();
 		resultManual();
+//		tilSecondorFirst();
 	}
 
 	// bonus랑 당첨숫자 보여줌
@@ -38,8 +47,10 @@ public class ShowTheResultController implements Initializable {
 
 		winning = MyNumController.temp.subList(0, 6);
 		bonus = MyNumController.temp.get(6);
+		
 		//equals를 성립하기 위해서 list를 treeset으로 바꿔줌 
 		winning2 = new TreeSet<Integer> (winning);
+//		StringTokenizer wi = 		
 		winningNumber.setText(winning.toString());
 		bonusNumber.setText(bonus.toString());
 		System.out.println(MyNumController.temp);
@@ -90,6 +101,7 @@ public class ShowTheResultController implements Initializable {
 	// 2등 확인!
 	public boolean secondWinner(List<Integer> winner, TreeSet<Integer> compare, Integer bonus) {
 //		List<Integer> temp = (List) compare;
+		
 		List<Integer> temp = new Vector<Integer>(compare);
 		int same = 5;
 		boolean bonusCheck = false;
@@ -115,5 +127,20 @@ public class ShowTheResultController implements Initializable {
 		}
 		return false;
 	}
+	
+	public void tilSecondorFirst() {
+//		Vector<Integer> allTotal = new Vector<Integer>();
+		
+		
+	}
+	
+	public int fact(int n) {
+		if(n<=1) {
+			return n;
+		}
+		return n*fact(n-1);
+	}
+
+
 
 }
