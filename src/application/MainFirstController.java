@@ -122,6 +122,10 @@ public class MainFirstController implements Initializable {
 		dialog.setScene(scene);
 		dialog.setResizable(false);
 		dialog.show();
+		
+		//기존에 수동 쌓였던 것들 초기화!
+		resetChBox(e);
+		//체크박스 클릭되지 않도록!
 		gridPane.setDisable(true);
 
 	}
@@ -225,7 +229,8 @@ public class MainFirstController implements Initializable {
 
 	// 자동 선택 숫자 6개 뽑기!
 	public void automaticalChoice() {
-		for (int i = 0; i < 6; i++) {
+
+		while(!(selectedNums.size() == 6)) {
 			selectedNums.add((int) (Math.random() * 45) + 1);
 
 		}
@@ -237,7 +242,7 @@ public class MainFirstController implements Initializable {
 //		selectedNums.add(4);
 //		selectedNums.add(5);
 //		selectedNums.add(7);
-		
+//		
 		// 6개 뽑고 정렬함!
 		NavigableSet<Integer> sorted = selectedNums.descendingSet().descendingSet();
 		selectedNums = (TreeSet) sorted;

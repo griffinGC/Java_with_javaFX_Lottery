@@ -40,7 +40,7 @@
       <HBox alignment="CENTER" prefHeight="49.0" prefWidth="430.0" spacing="20.0">
       	<children>
         	 <fx:define> <ToggleGroup fx:id="groupName"/></fx:define> 
-		<RadioButton fx:id="auto" mnemonicParsing="false" onAction="#AutoSelected" text="자동" toggleGroup="$groupName" />
+		<RadioButton fx:id="auto" mnemonicParsing="false" onAction="#AutoSelected"  text="자동" toggleGroup="$groupName" />
 		<RadioButton fx:id="manual" mnemonicParsing="false" onAction="#ManualSelected" text="수동" toggleGroup="$groupName" />
 			</children>
 		</HBox>
