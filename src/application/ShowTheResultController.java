@@ -195,25 +195,25 @@ public class ShowTheResultController implements Initializable {
 		totalNums.addAll(MainFirstController.manualTotalNums);
 		System.out.println("모두 들어간 값 :" +totalNums);
 		System.out.println(totalNums.size());
-//		while(!value) {
-//			TreeSet<Integer> tempValue = new TreeSet<Integer> ();
-//			for(int i = 0; i<totalNums.size(); i++) {
-//				tempValue = totalNums.get(i);
-//				tempBonus = bonusReal;
-//				winningList.retainAll(tempValue);
-//				matchingNumber = winningList.size();
-//				count++;
-//				if(matchingNumber == 5 && tempValue.contains(tempBonus)) {
-//					value = true;
-//				}
-//				if(matchingNumber == 6) {
-//					value = true;
-//				}
-//			}
-//		}
+		while(value != true) {
+			TreeSet<Integer> tempValue;// = new TreeSet<Integer> ();
+			for(int i = 0; i<totalNums.size(); i++) {
+				tempValue = totalNums.get(i);
+				tempBonus = bonusReal;
+				winningList.retainAll(tempValue);
+				matchingNumber = winningList.size();
+				count++;
+				if(matchingNumber == 5 && tempValue.contains(tempBonus)) {
+					value = true;
+				}
+				if(matchingNumber == 6) {
+					value = true;
+				}
+			}
+		}
 		Label firstCount = new Label();
 		Label secondCount = new Label();
-
+		//
 		firstCount.setText("1등이 될때까지 걸리는 횟수 : " + count);
 		secondCount.setText("2등이 될때까지 걸리는 횟수 : " + count);
 		vboxLast.getChildren().add(firstCount);
