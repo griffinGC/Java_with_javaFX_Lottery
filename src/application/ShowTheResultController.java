@@ -33,7 +33,7 @@ public class ShowTheResultController implements Initializable {
 	@FXML
 	private GridPane showWin;
 	
-	static public List<Integer> winning = new Vector<Integer>(); // 당첨번호 뽑기위해서 list로 생성 
+	static public List<Integer> winning ;//= new Vector<Integer>(); // 당첨번호 뽑기위해서 list로 생성 
 
 	static public TreeSet<Integer> winning2; //equals를 비교하기 위해 생성 
 	
@@ -41,6 +41,8 @@ public class ShowTheResultController implements Initializable {
 	static public Vector<TreeSet<Integer>> totalNums = new Vector<TreeSet<Integer>>();
 	
 	static public Integer bonusReal; // 보너스 번호
+	
+	
 	private Stage primaryStage2;
 	public void setPrimaryStage(Stage primaryStage) {
 		this.primaryStage2 = primaryStage;
@@ -59,9 +61,11 @@ public class ShowTheResultController implements Initializable {
 
 		winning = MyNumController.temp.subList(0, 6);
 		bonusReal = MyNumController.temp.get(6);
+		System.out.println("보너스 값 : " +bonusReal);
 		
 		//equals를 성립하기 위해서 list를 treeset으로 바꿔줌 
 		winning2 = new TreeSet<Integer> (winning);
+
 
 		for(int i = 0; i<winning.size(); i++) {
 			showWin.add(new Label(winning.get(i).toString()), i, 0);
@@ -69,7 +73,6 @@ public class ShowTheResultController implements Initializable {
 		}
 //		winningNumber.setText(winning.toString());
 		bonusNumber.setText(bonusReal.toString());
-		System.out.println(MyNumController.temp);
 		System.out.println("당첨 번호 : " +winning);
 		System.out.println("당첨번호 캐스팅 : " + winning2);
 	}

@@ -90,7 +90,7 @@ public class MyNumController implements Initializable{
 	}
 	
 	public void makeWinningNumber() throws Exception {
-		for(int i = 0; i< 7; i++)
+		while(tempSet.size() <8) // size가 7이 될때까지 중복 없이!
 		{
 			tempSet.add((int)(Math.random()*45) +1);
 		}
@@ -101,7 +101,7 @@ public class MyNumController implements Initializable{
 			temp.add(ite.next());
 		}
 		tempSet.clear();
-		System.out.print(temp);
+		System.out.println("temp값 : " +temp);
 		
 //		//임시값 삽입 
 //		temp.add(1);
