@@ -48,7 +48,7 @@ public class MyNumController implements Initializable{
 	@FXML private VBox manualChoice;
 	@FXML private Button checkWinning;
 	static public Vector<Integer> temp = new Vector<Integer>();
-	static public TreeSet<Integer> tempSet = new TreeSet<Integer>();
+	public TreeSet<Integer> tempSet = new TreeSet<Integer>();
 
 	
 	//자동으로 선택된 목록 
@@ -94,11 +94,14 @@ public class MyNumController implements Initializable{
 		{
 			tempSet.add((int)(Math.random()*45) +1);
 		}
-		//수가 중복되지 않게 하기 위해서 tempSet이라는 Set을 사용함 
+		System.out.println("tempSet " +tempSet);
+		//수가 중복되지 않게 하기 위해서 tempSet이라는 Set을 사용함
 		Iterator<Integer> ite = tempSet.iterator();
 		while(ite.hasNext()) {
 			temp.add(ite.next());
 		}
+		tempSet.clear();
+		System.out.print(temp);
 		
 //		//임시값 삽입 
 //		temp.add(1);
