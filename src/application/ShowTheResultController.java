@@ -213,7 +213,7 @@ public class ShowTheResultController implements Initializable {
 		}
 		Label firstCount = new Label();
 		Label secondCount = new Label();
-		//
+		//dpfj
 		firstCount.setText("1등이 될때까지 걸리는 횟수 : " + count);
 		secondCount.setText("2등이 될때까지 걸리는 횟수 : " + count);
 		vboxLast.getChildren().add(firstCount);
